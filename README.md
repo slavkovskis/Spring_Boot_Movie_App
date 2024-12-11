@@ -1,12 +1,17 @@
-The project/app is made from the laboratory exercises from the course Web Programming, but it is fairly extended.
+This application is based on laboratory exercises from the course/subject "Web Programming" but has been significantly extended to include additional features and enhancements.
 
-The idea behind the project is not mine.
+# Overview
 
-Main premise of the project/app is a cinema where you can view, delete, edit, add, filter Movies and also buy tickets.
+The project simulates a cinema management system, allowing users to:
+ -  Read, create, update, delete, and filter movies.
+ -  Purchase tickets for movies.
 
+While the initial concept is not my original idea, this implementation showcases expanded functionality and advanced use of Spring Boot.
 
-Used software:
- - Spring Boot
- - Spring Security
- - Bootstrap
- - Thymeleaf
+# Technologies Used
+- Spring Boot: For building the backend application.
+- Spring Security: To manage user authentication and access control.
+- Thymeleaf: As the templating engine for dynamic web pages.
+- Bootstrap: To design a responsive and user-friendly interface.
+
+Feel free to explore the code and provide any feedback!
