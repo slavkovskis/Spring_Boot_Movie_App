@@ -1,3 +1,5 @@
+# Spring Boot Movie App
+
 This application is based on laboratory exercises from the course/subject "Web Programming" but has been significantly extended to include additional features and enhancements.
 
 # Overview
