@@ -24,7 +24,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         this.passwordEncoder = passwordEncoder;
     }
 
-
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username).orElseThrow(() -> new IllegalArgumentException("Invalid username" + username));

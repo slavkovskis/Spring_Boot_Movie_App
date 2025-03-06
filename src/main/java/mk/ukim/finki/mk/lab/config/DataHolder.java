@@ -25,8 +25,8 @@ public class DataHolder {
     @PostConstruct
     public void init() {
 
-        // Edit if you want a custom username and password
         User admin = this.userService.create("admin", "admin", Role.ROLE_ADMIN);
+        User guest = this.userService.create("user", "user", Role.ROLE_USER);
 
 
         if (productionRepository.findAll().isEmpty()) {

@@ -11,9 +11,9 @@ The project simulates a cinema management system, allowing users to:
 While the initial concept is not my original idea, this implementation showcases expanded functionality and advanced use of Spring Boot.
 
 # Technologies Used
-- Spring Boot: For building the backend application.
-- Spring Security: To manage user authentication and access control.
-- Thymeleaf: As the templating engine for dynamic web pages.
-- Bootstrap: To design a responsive and user-friendly interface.
+- Spring Boot
+- Spring Security
+- Thymeleaf
+- Bootstrap
 
 Feel free to explore the code and provide any feedback!

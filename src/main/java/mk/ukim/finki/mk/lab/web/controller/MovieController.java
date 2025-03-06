@@ -4,6 +4,9 @@ import mk.ukim.finki.mk.lab.model.Movie;
 import mk.ukim.finki.mk.lab.model.Production;
 import mk.ukim.finki.mk.lab.service.MovieService;
 import mk.ukim.finki.mk.lab.service.ProductionService;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -35,15 +38,21 @@ public class MovieController {
             model.addAttribute("movies", movieService.filterMovies(title, rating));
         }
 
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        model.addAttribute("username", authentication.getName());
+        model.addAttribute("authorities", authentication.getAuthorities());
+
         return "listMovies";
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/movies/add")
     public String getAddMoviesPage(Model model) {
         model.addAttribute("productions", productionService.listAll());
         return "movieForm";
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/movies/edit/{id}")
     public String getEditMoviePage(@PathVariable Long id, Model model){
         Optional<Movie> movie = movieService.findById(id);
@@ -52,6 +61,7 @@ public class MovieController {
         return "movieForm";
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/movies/save")
     public String saveMovie(
             @RequestParam(value = "id", required = false) Long id,
@@ -65,6 +75,7 @@ public class MovieController {
         return "redirect:/movies";
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/movies/delete/{id}")
     public String deleteMovie(@PathVariable Long id, Model model){
         movieService.deleteMovie(id);
